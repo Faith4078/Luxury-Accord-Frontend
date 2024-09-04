@@ -32,6 +32,7 @@ const Contact = () => {
         error.response.data.code === 'duplicate_parameter'
       ) {
         alert('User already subscribed and cannot be subscribed twice.');
+        navigate('/');
         return;
       }
       error.response && alert('Error subscribing user');
