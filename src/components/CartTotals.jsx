@@ -13,6 +13,16 @@ const CartTotals = () => {
   const { total_amount, shipping_fee, cart } = useCartContext();
   const { user } = useUserContext();
   const handleSubmit = async (e) => {
+    toast('your ordered is being placed', {
+      position: 'bottom-right',
+      autoClose: 2500,
+      hideProgressBar: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+      transition: Bounce,
+    });
     e.preventDefault();
     try {
       const response = await fetch(
@@ -60,21 +70,7 @@ const CartTotals = () => {
           // <Link to={'/checkout'} className="btn">
           //   proceed to checkout
           // </Link>
-          <form
-            onSubmit={() => {
-              toast('your ordered is being placed', {
-                position: 'bottom-right',
-                autoClose: 2500,
-                hideProgressBar: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: 'light',
-                transition: Bounce,
-              });
-              handleSubmit();
-            }}
-          >
+          <form onSubmit={handleSubmit}>
             <button type="submit" className="btn">
               Checkout
             </button>
