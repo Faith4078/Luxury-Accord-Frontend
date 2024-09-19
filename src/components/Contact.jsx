@@ -42,7 +42,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     subscribeUser(email);
-    e.target.reset();
+    e.target
   };
 
   return (
